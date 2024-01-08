@@ -30,7 +30,8 @@
     "lint:ts:fix": "prettier --write . && eslint \"**/*.{ts,tsx}\" --fix",
     "sb:start": "storybook dev -p 6006",
     "sb:build": "storybook build",
-    "sb:deploy": "npm run sb:build && gh-pages -d storybook-static"
+    "sb:deploy": "npm run sb:build && gh-pages -d storybook-static",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -66,7 +67,8 @@
     "sass": "^1.69.7",
     "storybook": "^7.6.7",
     "typescript": "^5.3.3",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "husky": "^8.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0"
