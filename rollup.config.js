@@ -43,9 +43,8 @@ const config = [
       postcss({
         plugins: [postcssPresetEnv(), autoprefixer()],
         autoModules: true,
-        onlyModules: true,
         modules: {
-          generateScopedName: 'ginger-ui-kit-[name]__[local]___[hash:base64:5]'
+          generateScopedName: 'g-ui_[name]_[local]__[hash:base64:5]'
         },
         extract: false,
         extensions: ['.scss'],
