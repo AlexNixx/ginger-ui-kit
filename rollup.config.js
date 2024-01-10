@@ -38,7 +38,7 @@ const config = [
       commonjs(),
       typescript({
         tsconfig: './tsconfig.json',
-        exclude: ['**/*.stories.tsx']
+        exclude: ['**/*.stories.tsx', '**/*.spec.ts', '**/*.config.ts']
       }),
       postcss({
         plugins: [postcssPresetEnv(), autoprefixer()],
