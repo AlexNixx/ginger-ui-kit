@@ -30,7 +30,7 @@
     "lint:ts:fix": "prettier --write . && eslint \"**/*.{ts,tsx}\" --fix",
     "sb:start": "storybook dev -p 6006",
     "sb:build": "storybook build",
-    "sb:deploy": "npm run sb:build && gh-pages -d storybook-static",
+    "sb:deploy": "rimraf storybook-static && npm run sb:build && gh-pages -d storybook-static",
     "prepare": "husky install"
   },
   "devDependencies": {
