@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { classNames } from '../../utils/classNames';
-import type { Mods } from '../../utils/classNames';
+import { classNamesUtils } from '../../utils/classNames.utils';
+import type { Mods } from '../../utils/classNames.utils';
 
 import cls from './Button.module.scss';
 
@@ -59,7 +59,7 @@ export const Button = memo((props: ButtonProps) => {
   return (
     <button
       disabled={isDisabled}
-      className={classNames(cls.button, mods, additional)}
+      className={classNamesUtils(cls.button, mods, additional)}
       {...otherProps}
     >
       {startContent}
