@@ -44,7 +44,6 @@ export const Button = memo((props: ButtonProps) => {
   const isDisabled = isLoading || disabled;
 
   const mods: Mods = {
-    [cls[color]]: variant === 'solid',
     [cls.disabled]: isDisabled,
     [cls.fullWidth]: fullWidth
   };
@@ -52,6 +51,7 @@ export const Button = memo((props: ButtonProps) => {
   const additional = [
     className,
     cls[variant],
+    cls[color],
     cls[`size_${size}`],
     cls[`radius_${radius}`]
   ];
