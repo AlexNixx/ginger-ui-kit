@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import url from '@rollup/plugin-url';
@@ -12,6 +13,7 @@ import { dts } from 'rollup-plugin-dts';
 
 import postcssPresetEnv from 'postcss-preset-env';
 import autoprefixer from 'autoprefixer';
+import filesize from 'rollup-plugin-filesize';
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -32,9 +34,14 @@ const config = [
       }
     ],
     preserveModules: true,
+    external: [/@babel\/runtime/],
     plugins: [
       peerDepsExternal(),
       resolve(),
+      babel({
+        babelHelpers: 'runtime',
+        plugins: ['@babel/plugin-transform-runtime']
+      }),
       commonjs(),
       typescript({
         tsconfig: './tsconfig.json',
@@ -54,7 +61,8 @@ const config = [
       }),
       url(),
       svgr({ icon: true }),
-      terser()
+      terser(),
+      filesize()
     ]
   },
   {
