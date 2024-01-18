@@ -2,14 +2,16 @@ import { CSSProperties, memo } from 'react';
 
 import cls from './Skeleton.module.scss';
 
+type Unit = 'px' | 'em' | 'rem' | '%' | 'vw' | 'vh';
+
 interface SkeletonProps {
   height: number | string;
   width: number | string;
-  unit?: string;
+  unit?: Unit;
   borderRadius?: number;
 }
 
-const getUnit = (value: number | string, unit: string): string => {
+const getUnit = (value: number | string, unit: Unit): string => {
   if (typeof value === 'string') {
     return value;
   }
