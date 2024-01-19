@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from './Button.component';
+import { HeartIcon } from '../icons';
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -180,18 +181,118 @@ export const Disabled: Story = {
     <div
       style={{
         display: 'flex',
+        flexDirection: 'column',
         gap: '15px'
       }}
     >
-      <Button {...args} variant='solid' disabled>
-        Solid
-      </Button>
-      <Button {...args} variant='outlined' disabled>
-        Outlined
-      </Button>
-      <Button {...args} variant='clear' disabled>
-        Clear
-      </Button>
+      <div
+        style={{
+          display: 'flex',
+          gap: '15px',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button {...args} variant='solid' disabled>
+          Solid
+        </Button>
+        <Button {...args} variant='outlined' disabled>
+          Outlined
+        </Button>
+        <Button {...args} variant='clear' disabled>
+          Clear
+        </Button>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '15px',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button {...args} variant='solid' startContent={<HeartIcon />} disabled>
+          Solid
+        </Button>
+        <Button
+          {...args}
+          variant='outlined'
+          startContent={<HeartIcon />}
+          disabled
+        >
+          Outlined
+        </Button>
+        <Button {...args} variant='clear' startContent={<HeartIcon />} disabled>
+          Clear
+        </Button>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '15px',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button {...args} variant='solid' endContent={<HeartIcon />} disabled>
+          Solid
+        </Button>
+        <Button
+          {...args}
+          variant='outlined'
+          endContent={<HeartIcon />}
+          disabled
+        >
+          Outlined
+        </Button>
+        <Button {...args} variant='clear' endContent={<HeartIcon />} disabled>
+          Clear
+        </Button>
+      </div>
+    </div>
+  )
+};
+
+export const WithIcons: Story = {
+  render: args => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '15px'
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          gap: '15px',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button {...args} variant='solid' startContent={<HeartIcon />}>
+          Solid
+        </Button>
+        <Button {...args} variant='outlined' startContent={<HeartIcon />}>
+          Outlined
+        </Button>
+        <Button {...args} variant='clear' startContent={<HeartIcon />}>
+          Clear
+        </Button>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '15px',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button {...args} variant='solid' endContent={<HeartIcon />}>
+          Solid
+        </Button>
+        <Button {...args} variant='outlined' endContent={<HeartIcon />}>
+          Outlined
+        </Button>
+        <Button {...args} variant='clear' endContent={<HeartIcon />}>
+          Clear
+        </Button>
+      </div>
     </div>
   )
 };

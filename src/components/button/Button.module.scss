@@ -8,7 +8,7 @@
   line-height: var(--lh);
 
   min-width: 40px;
-  row-gap: 8px;
+  gap: 4px;
 
   color: var(--color-white);
 
@@ -26,6 +26,7 @@
 .solid {
   &.primary {
     background: var(--color-primary);
+    fill: var(--color-white);
 
     @media (hover: hover) {
       &:hover {
@@ -159,6 +160,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--color-primary);
+        fill: var(--color-primary);
       }
     }
   }
@@ -167,6 +169,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--color-secondary);
+        fill: var(--color-secondary);
       }
     }
   }
@@ -177,6 +180,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--color-success-hover);
+        fill: var(--color-success-hover);
       }
     }
   }
@@ -187,6 +191,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--color-warning-hover);
+        fill: var(--color-warning-hover);
       }
     }
   }
@@ -197,6 +202,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--color-error-hover);
+        fill: var(--color-error-hover);
       }
     }
   }
@@ -208,6 +214,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--color-text-disabled);
+        fill: var(--color-text-disabled);
       }
     }
   }
@@ -215,6 +222,7 @@
 
 .disabled {
   color: var(--color-text-disabled);
+  fill: var(--color-text-disabled);
   cursor: default;
 
   &:active {
