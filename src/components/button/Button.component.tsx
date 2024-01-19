@@ -1,22 +1,19 @@
 import { memo } from 'react';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { classNamesUtils } from '../../utils/classNames.utils';
-import type { Mods } from '../../utils/classNames.utils';
+import { classNames } from '../../utils';
+import type { Mods } from '../../utils';
+import type { BorderRadius, Color, Size, Variant } from '../../model';
 
 import cls from './Button.module.scss';
-
-type ButtonSizes = 'sm' | 'md' | 'lg';
-type ButtonVariants = 'solid' | 'outlined' | 'clear';
-type ButtonColors = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-type ButtonRadius = 'none' | ButtonSizes;
+import { Spinner } from '../spinner';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  size?: ButtonSizes;
-  variant?: ButtonVariants;
-  color?: ButtonColors;
-  radius?: ButtonRadius;
+  size?: Size;
+  variant?: Variant;
+  color?: Color;
+  radius?: BorderRadius;
   isLoading?: boolean;
   fullWidth?: boolean;
   disabled?: boolean;
@@ -59,7 +56,7 @@ export const Button = memo((props: ButtonProps) => {
   return (
     <button
       disabled={isDisabled}
-      className={classNamesUtils(cls.button, mods, additional)}
+      className={classNames(cls.button, mods, additional)}
       {...otherProps}
     >
       {startContent}
