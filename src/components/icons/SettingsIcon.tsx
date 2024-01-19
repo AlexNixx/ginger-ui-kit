@@ -1,0 +1,19 @@
+import type { SVGProps } from 'react';
+const SvgSettingsIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    fill='none'
+    viewBox='0 0 24 24'
+    width='1em'
+    height='1em'
+    {...props}
+  >
+    <g clipPath='url(#a)'>
+      <path
+        fill='#09121F'
+        d='M8 5h3v9H8v3H6v-3H3V5h3V2h2zM5 7v5h4V7zm13 3h3v9h-3v3h-2v-3h-3v-9h3V7h2zm-3 2v5h4v-5z'
+      />
+    </g>
+  </svg>
+);
+export default SvgSettingsIcon;
