@@ -1,0 +1,87 @@
+$size_sm: 80;
+$size_md: $size_sm * 1.4;
+$size_lg: $size_sm * 1.8;
+
+$border_sm: 8px;
+$border_md: 12px;
+$border_lg: 16px;
+
+.spinner {
+  position: relative;
+
+  div {
+    position: absolute;
+
+    border-style: solid;
+    border-radius: 50%;
+    animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+    box-sizing: border-box;
+  }
+
+  div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+
+  div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+
+  div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+
+  &.primary div {
+    border-color: var(--color-primary) transparent transparent transparent;
+  }
+
+  &.secondary div {
+    border-color: var(--color-secondary) transparent transparent transparent;
+  }
+
+  &.success div {
+    border-color: var(--color-success) transparent transparent transparent;
+  }
+
+  &.warning div {
+    border-color: var(--color-warning) transparent transparent transparent;
+  }
+
+  &.danger div {
+    border-color: var(--color-error) transparent transparent transparent;
+  }
+
+  &.disabled div {
+    border-color: var(--color-grey) transparent transparent transparent;
+  }
+
+  &.size_sm,
+  &.size_sm div {
+    width: $size_sm * 1px;
+    height: $size_sm * 1px;
+    border-width: $border_sm;
+  }
+
+  &.size_md,
+  &.size_md div {
+    width: $size_md * 1px;
+    height: $size_md * 1px;
+    border-width: $border_md;
+  }
+
+  &.size_lg,
+  &.size_lg div {
+    width: $size_lg * 1px;
+    height: $size_lg * 1px;
+    border-width: $border_lg;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
