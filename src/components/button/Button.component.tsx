@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { classNames } from '../../utils';
-import type { Mods } from '../../utils';
-import type { BorderRadius, Color, Size, Variant } from '../../model';
+import { Spinner } from 'components/spinner';
+import type { SpinnerColor } from 'components/spinner';
+
+import { classNames } from 'utils';
+import type { Mods } from 'utils';
+import type { BorderRadius, Color, Size, Variant } from 'model';
 
 import cls from './Button.module.scss';
-import { Spinner, SpinnerColor } from '../spinner';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -38,7 +40,7 @@ export const Button = memo((props: ButtonProps) => {
     ...otherProps
   } = props;
 
-  const isDisabled = isLoading || disabled;
+  const isDisabled: boolean = isLoading || disabled;
 
   const getSpinnerColor = (): SpinnerColor => {
     return variant === 'solid' ? 'white' : color;
@@ -49,7 +51,7 @@ export const Button = memo((props: ButtonProps) => {
     [cls.fullWidth]: fullWidth
   };
 
-  const additional = [
+  const additional: string[] = [
     className,
     cls[variant],
     cls[color],
