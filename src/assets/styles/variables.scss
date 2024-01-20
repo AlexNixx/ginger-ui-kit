@@ -45,11 +45,14 @@
   --color-warning-hover: #d5901f;
 
   --color-error: #db1256;
-  --color-error-hover: #c0104c;
+  --color-error-hover: #ff0961;
 
   --box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
     rgb(209, 213, 219) 0px 0px 0px 1px inset;
 
   --bg-skeleton: #d8d8d9;
   --color-foreground: #e2e2e2;
+
+  // animation
+  --transition: 0.35s;
 }

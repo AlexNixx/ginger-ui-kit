@@ -5,9 +5,11 @@ import type { Color, Size } from '../../model';
 
 import cls from './Spinner.module.scss';
 
+export type SpinnerColor = Color | 'white';
+
 interface SpinnerProps {
   size?: Size;
-  color?: Color | 'disabled';
+  color?: SpinnerColor;
   height?: number;
   width?: number;
   borderWidth?: number;

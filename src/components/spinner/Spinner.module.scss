@@ -51,8 +51,8 @@ $border_lg: 16px;
     border-color: var(--color-error) transparent transparent transparent;
   }
 
-  &.disabled div {
-    border-color: var(--color-grey) transparent transparent transparent;
+  &.white div {
+    border-color: var(--color-white) transparent transparent transparent;
   }
 
   &.size_sm,
