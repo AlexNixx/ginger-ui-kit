@@ -1,13 +1,14 @@
 .divider {
   background-color: var(--color-grey);
+  border-radius: 10px;
 
   &.horizontal {
     width: 100%;
-    height: 1px;
+    height: 1.5px;
   }
 
   &.vertical {
-    width: 1px;
+    width: 1.5px;
     height: auto;
     align-self: stretch;
   }
