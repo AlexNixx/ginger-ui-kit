@@ -1,0 +1,40 @@
+.accordionItem {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    .headerTitle {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-normal);
+      line-height: var(--lh);
+    }
+
+    .arrowIcon {
+      width: 24px;
+      height: 24px;
+      transition: transform var(--transition);
+    }
+  }
+
+  .content {
+    max-height: 0;
+    transition: max-height var(--transition);
+    overflow: hidden;
+  }
+
+  &.open {
+    .content {
+      max-height: 1000px;
+      transition: max-height var(--transition);
+    }
+
+    .arrowIcon {
+      transform: rotate(90deg);
+    }
+  }
+}
