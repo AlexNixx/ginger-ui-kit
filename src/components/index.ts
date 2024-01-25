@@ -6,3 +6,4 @@ export * from './divider';
 export * from './overlay';
 export * from './accordion';
 export * from './image';
+export * from './badge';
