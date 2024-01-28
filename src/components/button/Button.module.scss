@@ -8,8 +8,8 @@ $fz_lg: $default_fz * 1.4;
   align-items: center;
 
   font-size: $default_fz * 1px;
-  font-weight: var(--fw-light);
-  line-height: var(--lh);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body-1);
 
   min-width: 40px;
   gap: 8px;
