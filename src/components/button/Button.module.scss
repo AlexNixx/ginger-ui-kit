@@ -386,15 +386,15 @@ $fz_lg: $default_fz * 1.4;
 }
 
 .radius_sm {
-  border-radius: 8px;
+  border-radius: var(--border-radius-sm);
 }
 
 .radius_md {
-  border-radius: 12px;
+  border-radius: var(--border-radius-md);
 }
 
 .radius_lg {
-  border-radius: 14px;
+  border-radius: var(--border-radius-lg);
 }
 
 .fullWidth {
