@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   border: 0;
-  font-family: var(--family);
+  font-family: var(--font-family);
 }
 
 *,
@@ -31,7 +31,7 @@ aside {
 html,
 body {
   line-height: 1;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-body-1);
   color: var(--color-text);
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -83,5 +83,5 @@ h4,
 h5,
 h6 {
   font-size: inherit;
-  font-weight: var(--fw-light);
+  font-weight: 400;
 }

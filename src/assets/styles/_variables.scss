@@ -1,26 +1,17 @@
+@use './colors';
+@use './z-index';
+@use './animation';
+@use './typography';
+
 :root {
-  // Typography
-  --family: 'Inter';
-  --fs-xsm: 12px;
-  --fs-sm: 14px;
-  --fs-md: 16px;
-  --fs-lg: 18px;
-  --fs-xl: 24px;
-  --fs-xxl: 32px;
-  --fs-xxxl: 46px;
-  --fw-light: 400;
-  --fw-normal: 500;
-  --fw-bold: 600;
-  --lh: 20px;
+  @include colors.colors;
+  @include z-index.zIndex;
+  @include animation.transition;
+  @include typography.typography;
 
-  // Z-INDEX
-  --ui-index-1: 1;
-  --ui-index-2: 2;
-  --ui-index-3: 3;
-  --ui-index-4: 4;
-  --ui-index-5: 5;
-
-  // Colors
+  //
+  //@deprecated
+  //
   --bg-primary: #f7f8fa;
   --bg-secondary: #f7f8fa;
   --overlay-color: #18191a;
@@ -54,7 +45,4 @@
 
   --bg-skeleton: #d8d8d9;
   --color-foreground: #e2e2e2;
-
-  // animation
-  --transition: 0.35s;
 }
