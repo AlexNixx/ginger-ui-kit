@@ -9,7 +9,13 @@
   align-items: center;
   justify-content: center;
 
-  background: var(--overlay-color);
+  background: linear-gradient(
+    90deg,
+    var(--brand-500) 0%,
+    var(--brand-600) 45%,
+    var(--brand-700) 75%,
+    var(--brand-900) 100%
+  );
 
   z-index: var(--ui-index-4);
 

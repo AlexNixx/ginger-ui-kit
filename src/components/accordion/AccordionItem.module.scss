@@ -23,14 +23,13 @@
 
   .content {
     max-height: 0;
-    transition: max-height var(--transition);
     overflow: hidden;
   }
 
   &.open {
     .content {
       max-height: 1000px;
-      transition: max-height var(--transition);
+      margin-top: 12px;
     }
 
     .arrowIcon {

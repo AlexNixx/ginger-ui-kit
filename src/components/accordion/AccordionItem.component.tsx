@@ -4,6 +4,7 @@ import { ArrowDownIcon } from 'components/icons';
 import { classNames, Mods } from 'utils';
 
 import cls from './AccordionItem.module.scss';
+import { Typography } from '../typography';
 
 export type AccordionItemElement = ReactElement<AccordionItemProps>;
 
@@ -30,7 +31,9 @@ export const AccordionItem = (props: AccordionItemProps) => {
       aria-label={(isOpen ? 'hide ' : 'show ') + ariaControls}
     >
       <div onClick={onClick} className={cls.header}>
-        <h3 className={cls.headerTitle}>{title}</h3>
+        <Typography variant='h6' fontWeight='medium'>
+          {title}
+        </Typography>
         <ArrowDownIcon className={cls.arrowIcon} />
       </div>
       <section className={cls.content} id={ariaControls}>

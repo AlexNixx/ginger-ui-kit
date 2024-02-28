@@ -2,52 +2,12 @@
 @use './z-index';
 @use './animation';
 @use './typography';
+@use './sizes';
 
 :root {
   @include colors.colors;
   @include z-index.zIndex;
   @include animation.transition;
   @include typography.typography;
-
-  --border-radius-xs: 5px;
-  --border-radius-sm: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 14px;
-
-  //
-  //@deprecated
-  //
-  --bg-primary: #f7f8fa;
-  --bg-secondary: #f7f8fa;
-  --overlay-color: #18191a;
-
-  --color-primary: #7284fc;
-  --color-primary-hover: #929ff7;
-
-  --color-secondary: #bab8fa;
-  --color-secondary-hover: #9b99d0;
-
-  --color-text: #18191a;
-  --color-text-disabled: rgba(0, 0, 0, 0.3);
-
-  --color-white: #fdfff7;
-  --color-black: #18191a;
-
-  --color-grey: #ccc;
-  --color-grey-hover: #bdbdbd;
-
-  --color-success: #19c964;
-  --color-success-hover: #15b457;
-
-  --color-warning: #f4a423;
-  --color-warning-hover: #d5901f;
-
-  --color-error: #db1256;
-  --color-error-hover: #ff0961;
-
-  --box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
-    rgb(209, 213, 219) 0px 0px 0px 1px inset;
-
-  --bg-skeleton: #d8d8d9;
-  --color-foreground: #e2e2e2;
+  @include sizes.sizes;
 }
