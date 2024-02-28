@@ -8,3 +8,4 @@ export * from './accordion';
 export * from './image';
 export * from './badge';
 export * from './typography';
+export * from './checkbox';
