@@ -1,56 +1,54 @@
 import {
   ChangeEvent,
-  InputHTMLAttributes,
   memo,
-  ReactNode,
+  TextareaHTMLAttributes,
   useEffect,
   useRef,
   useState
 } from 'react';
 
+import { type Mods, classNames } from 'shared/utils';
 import { Typography } from '../typography';
-import { classNames } from 'shared/utils';
-import type { Mods } from 'shared/utils';
 
-import cls from './TextField.module.scss';
+import cls from './TextArea.module.scss';
 
-type HTMLTextFieldProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
+type HTMLTextAreaProps = Omit<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
   'value' | 'onChange' | 'readOnly' | 'size'
 >;
 
-interface TextFieldProps extends HTMLTextFieldProps {
+interface TextAreaProps extends HTMLTextAreaProps {
   label?: string;
   hint?: string;
   readonly?: boolean;
   autofocus?: boolean;
   isError?: boolean;
   errorMessage?: string;
-  leftAddon?: ReactNode;
-  rightAddon?: ReactNode;
   className?: string;
+  showMaxLength?: boolean;
+  maxLength?: number;
   onChange?: (value: string) => void;
 }
 
-export const TextField = memo((props: TextFieldProps) => {
+export const TextArea = memo((props: TextAreaProps) => {
   const {
     label,
     hint,
-    type = 'text',
     disabled,
     readonly,
     autofocus,
+    className,
     isError,
     errorMessage,
-    leftAddon,
-    rightAddon,
-    className,
+    showMaxLength = false,
+    maxLength = 500,
     onChange,
     ...otherProps
   } = props;
 
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [charLength, setCharLength] = useState<number>(0);
 
   const mods: Mods = {
     [cls.focused]: isFocused,
@@ -76,34 +74,30 @@ export const TextField = memo((props: TextFieldProps) => {
     setIsFocused(true);
   };
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+  const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    onChange(value);
+    setCharLength(value.trim().length);
   };
 
-  const textField = (
-    <div className={classNames(cls.textFieldWrapper, mods, additional)}>
-      {leftAddon && (
-        <div className={classNames(cls.leftAddon)}>{leftAddon}</div>
-      )}
-      <input
+  const textArea = (
+    <div className={classNames(cls.textAreaWrapper, mods, additional)}>
+      <textarea
         ref={ref}
-        type={type}
         onFocus={onFocus}
         onBlur={onBlur}
         onChange={handleOnChange}
         readOnly={readonly}
-        className={cls.textField}
+        className={cls.textArea}
+        maxLength={maxLength}
         {...otherProps}
       />
-      {rightAddon && (
-        <div className={classNames(cls.rightAddon)}>{rightAddon}</div>
-      )}
     </div>
   );
 
-  if (label || hint || errorMessage) {
+  if (label || hint || errorMessage || showMaxLength) {
     return (
-      <div className={cls.textFieldContainer}>
+      <div className={cls.textAreaContainer}>
         {label && (
           <Typography
             variant='body2'
@@ -114,7 +108,7 @@ export const TextField = memo((props: TextFieldProps) => {
             {label}
           </Typography>
         )}
-        {textField}
+        {textArea}
         {(isError || hint) && (
           <Typography
             variant='body2'
@@ -124,9 +118,14 @@ export const TextField = memo((props: TextFieldProps) => {
             {isError && errorMessage ? errorMessage : hint}
           </Typography>
         )}
+        {showMaxLength && (
+          <Typography variant='body2' className={cls.maxLength} noWrap>
+            {`${charLength}/${maxLength}`}
+          </Typography>
+        )}
       </div>
     );
   }
 
-  return textField;
+  return textArea;
 });

@@ -1,15 +1,11 @@
-.textFieldWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
+.textAreaWrapper {
   border-radius: var(--border-radius-sm);
   border: 1.5px solid var(--grey-300);
   background: var(--white);
 
   overflow: hidden;
 
-  min-height: 38px;
+  padding: 15px;
   transition: all var(--transition);
 
   &.focused {
@@ -26,33 +22,20 @@
     border: 1.5px solid var(--error-200);
     box-shadow: 0px 0px 0px 5px var(--error-100);
 
-    .textField {
+    .textArea {
       color: var(--error-500);
     }
   }
 
-  .leftAddon,
-  .rightAddon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100%;
-
-    padding: 0 15px;
-    min-width: 50px;
-    max-width: 120px;
-
-    color: var(--grey-700);
-    background: var(--grey-200);
-  }
-
-  .textField {
+  .textArea {
     color: var(--grey-900);
     background: transparent;
     width: 100%;
-    padding: 0 15px;
     font-size: var(--fs-body-1);
+    resize: none;
+    min-height: 62px;
+    max-height: 320px;
+    overflow-y: auto;
 
     &::placeholder {
       color: var(--grey-400);
@@ -60,11 +43,12 @@
   }
 }
 
-.textFieldContainer {
+.textAreaContainer {
   position: relative;
 
   .label,
-  .hint {
+  .hint,
+  .maxLength {
     position: absolute;
   }
 
@@ -84,5 +68,11 @@
     &.error {
       color: var(--error-600);
     }
+  }
+
+  .maxLength {
+    bottom: 0;
+    right: 0;
+    transform: translate(0, 22.5px);
   }
 }
