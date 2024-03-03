@@ -1,11 +1,10 @@
-import React, { ReactNode } from 'react';
-import { animated, useSpring } from '@react-spring/web';
+import React, { memo, ReactNode } from 'react';
 
 import { Portal } from 'components/portal';
 import { Overlay } from 'components/overlay';
 import { useModal } from 'shared/hooks';
 import { classNames } from 'shared/utils';
-import type { Mods } from 'shared/utils';
+import { useAnimationLibs, AnimationProvider } from 'shared/lib';
 
 import cls from './Modal.module.scss';
 
@@ -18,7 +17,8 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-export const Modal = (props: ModalProps) => {
+const ModalContent = memo((props: ModalProps) => {
+  const { useSpring, animated } = useAnimationLibs().Spring;
   const { className, children, isOpen, onClose } = props;
 
   const { close, isClosing, isMounted } = useModal({
@@ -32,11 +32,6 @@ export const Modal = (props: ModalProps) => {
     config: { duration: ANIMATION_DELAY }
   });
 
-  const mods: Mods = {
-    [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing
-  };
-
   if (!isMounted) {
     return null;
   }
@@ -45,7 +40,7 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <animated.div
         style={animation}
-        className={classNames(cls.modal, mods, [className])}
+        className={classNames(cls.modal, {}, [className])}
         aria-modal
       >
         <Overlay onClick={close} />
@@ -53,4 +48,20 @@ export const Modal = (props: ModalProps) => {
       </animated.div>
     </Portal>
   );
+});
+
+export const ModalAsync = (props: ModalProps) => {
+  const { isLoaded } = useAnimationLibs();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  return <ModalContent {...props}>{props.children}</ModalContent>;
 };
+
+export const Modal = (props: ModalProps) => (
+  <AnimationProvider>
+    <ModalAsync {...props}>{props.children}</ModalAsync>
+  </AnimationProvider>
+);

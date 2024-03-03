@@ -12,13 +12,7 @@
   left: 0;
 
   padding: 20px;
-
-  //opacity: 0;
-  //transition: var(--transition) opacity;
   z-index: var(--ui-index-5);
-  //pointer-events: auto;
-
-  pointer-events: none;
 
   .content {
     padding: 20px;
@@ -26,7 +20,6 @@
     transition: var(--transition) transform;
     background: var(--white);
     z-index: var(--ui-index-5);
-    //transform: scale(0.5);
 
     width: 100%;
 
@@ -34,22 +27,6 @@
       & {
         max-width: 60%;
       }
-    }
-  }
-
-  &.opened {
-    //opacity: 1;
-    //z-index: var(--ui-index-5);
-    pointer-events: auto;
-
-    .content {
-      //transform: scale(1);
-    }
-  }
-
-  &.isClosing {
-    .content {
-      //transform: scale(0.2);
     }
   }
 }

@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {},
   render: args => (
-    <Modal isOpen={true} lazy {...args}>
+    <Modal isOpen={true} {...args}>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
         commodi consequatur eligendi impedit incidunt necessitatibus possimus
