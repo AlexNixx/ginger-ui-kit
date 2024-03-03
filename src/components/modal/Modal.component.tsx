@@ -50,7 +50,7 @@ const ModalContent = memo((props: ModalProps) => {
   );
 });
 
-export const ModalAsync = (props: ModalProps) => {
+const ModalAsync = (props: ModalProps) => {
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) {
