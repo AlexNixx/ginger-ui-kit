@@ -1,10 +1,11 @@
 import type { ReactElement, ReactNode } from 'react';
 
 import { ArrowDownIcon } from 'components/icons';
-import { classNames, Mods } from 'utils';
+import { Typography } from 'components/typography';
+import { classNames } from 'shared/utils';
+import type { Mods } from 'shared/utils';
 
 import cls from './AccordionItem.module.scss';
-import { Typography } from '../typography';
 
 export type AccordionItemElement = ReactElement<AccordionItemProps>;
 

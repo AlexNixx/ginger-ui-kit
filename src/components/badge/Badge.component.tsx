@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { classNames } from 'utils';
+import { classNames } from 'shared/utils';
 
 import cls from './Badge.module.scss';
 

@@ -1,4 +1,4 @@
-import { classNames } from 'utils';
+import { classNames } from 'shared/utils';
 import type { Orientation } from 'model';
 
 import cls from './Divider.module.scss';

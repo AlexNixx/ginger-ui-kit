@@ -9,7 +9,8 @@ import {
 } from 'react';
 
 import { Typography } from '../typography';
-import { classNames, Mods } from 'utils';
+import { classNames } from 'shared/utils';
+import type { Mods } from 'shared/utils';
 
 import cls from './TextField.module.scss';
 

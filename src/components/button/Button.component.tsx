@@ -4,8 +4,8 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { Spinner } from 'components/spinner';
 import type { SpinnerColor } from 'components/spinner';
 
-import { classNames } from 'utils';
-import type { Mods } from 'utils';
+import { classNames } from 'shared/utils';
+import type { Mods } from 'shared/utils';
 import type { BorderRadius, Color, Size, Variant } from 'model';
 
 import cls from './Button.module.scss';

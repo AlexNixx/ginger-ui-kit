@@ -1,6 +1,6 @@
 import type { ChangeEvent, ReactElement, ReactNode } from 'react';
 
-import { classNames } from 'utils';
+import { classNames } from 'shared/utils';
 import { Typography } from '../typography';
 
 import cls from './Checkbox.module.scss';
