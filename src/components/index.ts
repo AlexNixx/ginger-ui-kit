@@ -13,3 +13,4 @@ export * from './text-field';
 export * from './modal';
 export * from './drawer';
 export * from './stepper';
+export * from './uploader';

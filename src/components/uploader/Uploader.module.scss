@@ -1,0 +1,57 @@
+.uploader {
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+
+  height: 192px;
+  background: var(--grey-200);
+  width: 192px;
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+
+  position: relative;
+
+  .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: var(--ui-index-1);
+  }
+
+  .description {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    opacity: 0;
+    z-index: var(--ui-index-2);
+
+    &.show {
+      opacity: 1;
+    }
+
+    &.hover {
+      opacity: 1;
+      background: var(--overlay);
+
+      & > * {
+        color: var(--white);
+      }
+    }
+
+    svg {
+      color: var(--grey-400);
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
