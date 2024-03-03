@@ -10,3 +10,4 @@ export * from './badge';
 export * from './typography';
 export * from './checkbox';
 export * from './text-field';
+export * from './modal';
