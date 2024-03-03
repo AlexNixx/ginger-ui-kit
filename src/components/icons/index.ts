@@ -17,6 +17,7 @@ export { default as FilterIcon } from './FilterIcon';
 export { default as FilterOffIcon } from './FilterOffIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as HomeIcon } from './HomeIcon';
+export { default as ImageIcon } from './ImageIcon';
 export { default as LogoutIcon } from './LogoutIcon';
 export { default as MinusIcon } from './MinusIcon';
 export { default as PackageIcon } from './PackageIcon';
