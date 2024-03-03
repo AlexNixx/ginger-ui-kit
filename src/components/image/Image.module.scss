@@ -1,17 +1,57 @@
-.image {
-  .radius_none {
+.image,
+.imageFallback {
+  &.radius_none {
     border-radius: 0;
   }
 
-  .radius_sm {
-    border-radius: 8px;
+  &.radius_xs {
+    border-radius: var(--border-radius-xs);
   }
 
-  .radius_md {
-    border-radius: 12px;
+  &.radius_sm {
+    border-radius: var(--border-radius-sm);
   }
 
-  .radius_lg {
-    border-radius: 14px;
+  &.radius_md {
+    border-radius: var(--border-radius-md);
+  }
+
+  &.radius_lg {
+    border-radius: var(--border-radius-lg);
+  }
+
+  &.objectFit {
+    &_contain {
+      object-fit: contain;
+    }
+
+    &_cover {
+      object-fit: cover;
+    }
+
+    &_fill {
+      object-fit: fill;
+    }
+
+    &_none {
+      object-fit: none;
+    }
+
+    &_scale-down {
+      object-fit: scale-down;
+    }
+  }
+}
+
+.image {
+  animation: blur 1s ease;
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(var(--blur));
+  }
+  100% {
+    filter: blur(0px);
   }
 }
