@@ -381,6 +381,10 @@ $fz_lg: $default_fz * 1.4;
   border-radius: 0;
 }
 
+.radius_xs {
+  border-radius: var(--border-radius-xs);
+}
+
 .radius_sm {
   border-radius: var(--border-radius-sm);
 }
