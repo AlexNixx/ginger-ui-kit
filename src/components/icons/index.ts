@@ -25,6 +25,7 @@ export { default as SearchIcon } from './SearchIcon';
 export { default as SettingsIcon } from './SettingsIcon';
 export { default as ShareIcon } from './ShareIcon';
 export { default as SuccessCircleIcon } from './SuccessCircleIcon';
+export { default as SuccessIcon } from './SuccessIcon';
 export { default as TranslateIcon } from './TranslateIcon';
 export { default as TruckIcon } from './TruckIcon';
 export { default as UserIcon } from './UserIcon';

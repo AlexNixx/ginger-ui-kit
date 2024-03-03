@@ -34,7 +34,10 @@ const config = [
       }
     ],
     preserveModules: true,
-    external: [/@babel\/runtime/],
+    external: [
+      ...Object.keys(packageJson.dependencies || {}),
+      /@babel\/runtime/
+    ],
     plugins: [
       peerDepsExternal(),
       resolve(),

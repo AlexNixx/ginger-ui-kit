@@ -32,27 +32,27 @@ $border_lg: 16px;
   }
 
   &.primary div {
-    border-color: var(--color-primary) transparent transparent transparent;
+    border-color: var(--brand-500) transparent transparent transparent;
   }
 
   &.secondary div {
-    border-color: var(--color-secondary) transparent transparent transparent;
+    border-color: var(--brand-300) transparent transparent transparent;
   }
 
   &.success div {
-    border-color: var(--color-success) transparent transparent transparent;
+    border-color: var(--success-500) transparent transparent transparent;
   }
 
   &.warning div {
-    border-color: var(--color-warning) transparent transparent transparent;
+    border-color: var(--warning-500) transparent transparent transparent;
   }
 
   &.danger div {
-    border-color: var(--color-error) transparent transparent transparent;
+    border-color: var(--error-500) transparent transparent transparent;
   }
 
   &.white div {
-    border-color: var(--color-white) transparent transparent transparent;
+    border-color: var(--white) transparent transparent transparent;
   }
 
   &.size_sm,

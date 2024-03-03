@@ -1,0 +1,33 @@
+@mixin typography {
+  //TODO: add default font
+  --font-family: 'Inter';
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi: 600;
+  --fw-bold: 700;
+
+  --fs-body-2: 12px;
+  --lh-body-2: 18px;
+
+  --fs-body-1: 14px;
+  --lh-body-1: 20px;
+
+  --fs-h6: 16px;
+  --lh-h6: 24px;
+
+  --fs-h5: 18px;
+  --lh-h5: 28px;
+
+  --fs-h4: 20px;
+  --lh-h4: 30px;
+
+  --fs-h3: 24px;
+  --lh-h3: 32px;
+
+  --fs-h2: 30px;
+  --lh-h2: 38px;
+
+  --fs-h1: 36px;
+  --lh-h1: 44px;
+}

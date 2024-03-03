@@ -1,6 +1,7 @@
 import { memo } from 'react';
 
-import { classNames, Mods } from 'utils';
+import { classNames } from 'shared/utils';
+import type { Mods } from 'shared/utils';
 
 import cls from './Overlay.module.scss';
 

@@ -1,0 +1,25 @@
+@use 'src/assets/styles/variables/breakpoints' as bp;
+
+@mixin mobile {
+  @media (min-width: map-get(bp.$breakpoints, mobile)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: map-get(bp.$breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: map-get(bp.$breakpoints, desktop)) {
+    @content;
+  }
+}
+
+@mixin lg-desktop {
+  @media (min-width: map-get(bp.$breakpoints, lg-desktop)) {
+    @content;
+  }
+}

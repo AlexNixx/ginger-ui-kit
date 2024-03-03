@@ -10,8 +10,8 @@
 
     .headerTitle {
       font-size: var(--fs-lg);
-      font-weight: var(--fw-normal);
-      line-height: var(--lh);
+      font-weight: var(--fw-medium);
+      line-height: var(--lh-body-1);
     }
 
     .arrowIcon {
@@ -23,14 +23,13 @@
 
   .content {
     max-height: 0;
-    transition: max-height var(--transition);
     overflow: hidden;
   }
 
   &.open {
     .content {
       max-height: 1000px;
-      transition: max-height var(--transition);
+      margin-top: 12px;
     }
 
     .arrowIcon {

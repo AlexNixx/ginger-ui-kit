@@ -19,7 +19,7 @@ export const Default: Story = {
   render: args => (
     <div
       style={{
-        border: '1px solid var(--color-grey)',
+        border: '1px solid var(--grey-300)',
         borderRadius: '10px',
         padding: '10px',
         height: '150px',
@@ -47,7 +47,7 @@ export const Vertical: Story = {
         borderRadius: '10px',
         width: 'max-content',
         padding: '5px',
-        border: '1px solid var(--color-grey)'
+        border: '1px solid var(--grey-400)'
       }}
     >
       <BagIcon />
@@ -73,7 +73,7 @@ export const Horizontal: Story = {
         borderRadius: '10px',
         width: 'max-content',
         padding: '5px',
-        border: '1px solid var(--color-grey)'
+        border: '1px solid var(--grey-400)'
       }}
     >
       <BagIcon />

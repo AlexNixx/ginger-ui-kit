@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-import { classNames } from '../../utils';
+import { classNames } from 'shared/utils';
 import type { Color, Size } from '../../model';
 
 import cls from './Spinner.module.scss';

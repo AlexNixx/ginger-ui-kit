@@ -1,0 +1,72 @@
+@mixin getSize($variant) {
+  font-size: var(--fs-#{$variant});
+  line-height: var(--lh-#{$variant});
+}
+
+.typography {
+  font-family: var(--font-family);
+
+  &.regular {
+    font-weight: var(--fw-regular);
+  }
+  &.medium {
+    font-weight: var(--fw-medium);
+  }
+  &.semiBold {
+    font-weight: var(--fw-semi);
+  }
+  &.bold {
+    font-weight: var(--fw-bold);
+  }
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+  &.default {
+    color: var(--black);
+  }
+  &.danger {
+    color: var(--error-500);
+  }
+  &.warning {
+    color: var(--warning-500);
+  }
+  &.success {
+    color: var(--success-600);
+  }
+  &.noWrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 2px 0;
+    overflow: hidden;
+  }
+  &.body2 {
+    @include getSize(body-2);
+  }
+  &.body1 {
+    @include getSize(body-1);
+  }
+  &.h6 {
+    @include getSize(h6);
+  }
+  &.h5 {
+    @include getSize(h5);
+  }
+  &.h4 {
+    @include getSize(h4);
+  }
+  &.h3 {
+    @include getSize(h3);
+  }
+  &.h2 {
+    @include getSize(h2);
+  }
+  &.h1 {
+    @include getSize(h1);
+  }
+}

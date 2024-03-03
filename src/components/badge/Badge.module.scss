@@ -12,13 +12,13 @@
     right: 0;
     transform: translate(50%, -25%);
 
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: var(--brand-500);
+    color: var(--white);
 
     width: 18px;
     height: 18px;
     padding: 2px;
-    font-size: var(--fs-xsm);
+    font-size: var(--fs-body-2);
     border-radius: 50%;
     pointer-events: none;
     z-index: var(--ui-index-1);

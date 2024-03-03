@@ -1,21 +1,21 @@
-import { classNamesUtils } from './classNames.utils';
+import { classNames } from './classNames.utils';
 
 describe('classNames', () => {
   test('with only first param', () => {
-    expect(classNamesUtils('button')).toBe('button');
+    expect(classNames('button')).toBe('button');
   });
 
   test('with additional class', () => {
     const expected = 'button solid primary';
 
-    expect(classNamesUtils('button', {}, ['solid', 'primary'])).toBe(expected);
+    expect(classNames('button', {}, ['solid', 'primary'])).toBe(expected);
   });
 
   test('with mods', () => {
     const expected = 'button solid primary disabled fullWidth';
 
     expect(
-      classNamesUtils('button', { disabled: true, fullWidth: true }, [
+      classNames('button', { disabled: true, fullWidth: true }, [
         'solid',
         'primary'
       ])
@@ -26,7 +26,7 @@ describe('classNames', () => {
     const expected = 'button solid primary disabled';
 
     expect(
-      classNamesUtils('button', { disabled: true, fullWidth: false }, [
+      classNames('button', { disabled: true, fullWidth: false }, [
         'solid',
         'primary'
       ])
@@ -37,7 +37,7 @@ describe('classNames', () => {
     const expected = 'button solid primary disabled';
 
     expect(
-      classNamesUtils('button', { disabled: true, fullWidth: undefined }, [
+      classNames('button', { disabled: true, fullWidth: undefined }, [
         'solid',
         'primary'
       ])

@@ -20,7 +20,8 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
@@ -62,6 +63,7 @@
     "@svgr/webpack": "^8.1.0",
     "@types/jest": "^29.5.11",
     "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.56.0",
     "eslint-config-react-app": "^7.0.1",
@@ -89,9 +91,12 @@
     "url-loader": "^4.1.1"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.8"
+    "@babel/runtime": "^7.23.8",
+    "@react-spring/web": "^9.7.3",
+    "@use-gesture/react": "^10.3.0"
   }
 }

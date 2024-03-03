@@ -1,0 +1,32 @@
+@use 'src/assets/styles/mixins/breakpoints' as bp;
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  padding: 20px;
+  z-index: var(--ui-index-5);
+
+  .content {
+    padding: 20px;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition) transform;
+    background: var(--white);
+    z-index: var(--ui-index-5);
+
+    width: 100%;
+
+    @include bp.tablet {
+      & {
+        max-width: 60%;
+      }
+    }
+  }
+}

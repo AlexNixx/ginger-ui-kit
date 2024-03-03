@@ -1,0 +1,88 @@
+.textFieldWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-radius: var(--border-radius-sm);
+  border: 1.5px solid var(--grey-300);
+  background: var(--white);
+
+  overflow: hidden;
+
+  min-height: 38px;
+  transition: all var(--transition);
+
+  &.focused {
+    box-shadow: 0px 0px 0px 5px var(--brand-100);
+  }
+
+  &.disabled,
+  &.readonly {
+    background: var(--grey-100);
+    box-shadow: none;
+  }
+
+  &.error {
+    border: 1.5px solid var(--error-200);
+    box-shadow: 0px 0px 0px 5px var(--error-100);
+
+    .textField {
+      color: var(--error-500);
+    }
+  }
+
+  .leftAddon,
+  .rightAddon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 15px;
+    min-width: 50px;
+    max-width: 120px;
+
+    color: var(--grey-700);
+    background: var(--grey-200);
+  }
+
+  .textField {
+    color: var(--grey-900);
+    background: transparent;
+    width: 100%;
+    padding: 0 15px;
+    font-size: var(--fs-body-1);
+
+    &::placeholder {
+      color: var(--grey-300);
+    }
+  }
+}
+
+.textFieldContainer {
+  position: relative;
+
+  .label,
+  .hint {
+    position: absolute;
+  }
+
+  .label {
+    top: 0;
+    left: 0;
+    transform: translate(0, -22.5px);
+    color: var(--grey-700);
+  }
+
+  .hint {
+    bottom: 0;
+    left: 0;
+    transform: translate(0, 22.5px);
+    color: var(--grey-600);
+
+    &.error {
+      color: var(--error-600);
+    }
+  }
+}

@@ -9,7 +9,8 @@
   align-items: center;
   justify-content: center;
 
-  background: var(--overlay-color);
+  background: var(--overlay);
+  backdrop-filter: blur(var(--blur));
 
   z-index: var(--ui-index-4);
 
