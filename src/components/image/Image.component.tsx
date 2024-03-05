@@ -1,9 +1,8 @@
-import { memo, useLayoutEffect, useState } from 'react';
-import type { ImgHTMLAttributes, ReactElement } from 'react';
+import { memo, ReactNode, useLayoutEffect, useState } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 
 import { classNames } from 'shared/utils';
 import type { BorderRadius } from 'model';
-import { classNames } from 'utils';
 
 import cls from './Image.module.scss';
 
@@ -12,14 +11,18 @@ type ObjectFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   radius?: BorderRadius;
-  fallback?: ReactElement;
-  errorFallback?: ReactElement;
+  objectFit?: ObjectFit;
+  fallback?: ReactNode;
+  fallbackUrl?: string;
+  errorFallback?: ReactNode;
 }
 
 export const _Image = memo((props: ImageProps) => {
   const {
     className,
     src,
+    width,
+    height,
     radius = 'md',
     objectFit = 'cover',
     fallback,
@@ -28,8 +31,6 @@ export const _Image = memo((props: ImageProps) => {
     alt,
     ...otherProps
   } = props;
-
-  const additional: string[] = [className, cls[`radius_${radius}`]];
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
