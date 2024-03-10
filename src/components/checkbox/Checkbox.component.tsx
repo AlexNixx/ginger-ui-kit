@@ -1,13 +1,12 @@
 import type { ChangeEvent, ReactElement, ReactNode } from 'react';
 
 import { classNames } from 'shared/utils';
-import { Typography } from '../typography';
+import { Typography } from 'components/typography';
+import { CheckboxValue } from 'model';
 
 import cls from './Checkbox.module.scss';
 
 export type CheckboxElement = ReactElement<CheckboxProps>;
-
-export type CheckboxValue = string | number;
 
 interface CheckboxProps {
   value: CheckboxValue;

@@ -7,3 +7,5 @@ export type Variant = 'solid' | 'outlined' | 'clear';
 export type BorderRadius = 'none' | 'xs' | Size;
 
 export type Orientation = 'horizontal' | 'vertical';
+
+export type CheckboxValue = string | number;

@@ -1,7 +1,8 @@
 import { Children, cloneElement, isValidElement } from 'react';
 
-import type { CheckboxElement, CheckboxValue } from './Checkbox.component';
-import { Typography } from '../typography';
+import type { CheckboxElement } from './Checkbox.component';
+import { Typography } from 'components/typography';
+import { CheckboxValue } from 'model';
 
 import cls from './CheckboxGroup.module.scss';
 
