@@ -1,0 +1,76 @@
+$width: 36px;
+$height: 20px;
+$size: 16px;
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: $width;
+    height: $height;
+
+    .input {
+      display: none;
+    }
+
+    @media (hover: hover) {
+      &:hover .label {
+        background-color: var(--grey-300);
+      }
+    }
+
+    &:active .label {
+      box-shadow: 0px 0px 0px 5px var(--brand-100);
+    }
+
+    .input:checked + .label {
+      background-color: var(--brand-500);
+    }
+
+    &.disabled {
+      .label {
+        background-color: var(--grey-100);
+        box-shadow: none;
+        cursor: default;
+      }
+
+      .input:checked + .label {
+        background-color: var(--brand-200);
+      }
+    }
+
+    .input:checked + .label:before {
+      transform: translateX($size);
+    }
+
+    .label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $width;
+      height: $height;
+      background-color: var(--grey-200);
+      border-radius: var(--border-radius-md);
+      transition: background-color 0.3s;
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: $size;
+        height: $size;
+        border-radius: var(--border-circul);
+        top: 2px;
+        left: 2px;
+        background-color: var(--white);
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+      }
+    }
+  }
+}
