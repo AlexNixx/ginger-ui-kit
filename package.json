@@ -1,9 +1,9 @@
 {
-  "name": "ginger-ui-kit",
+  "name": "nixx-ui",
   "version": "1.0.0",
   "private": false,
   "author": "Alex Nixx",
-  "description": "React component library of the Ginger e-commerce website",
+  "description": "React component library",
   "keywords": [
     "react",
     "react-component",
