@@ -16,3 +16,4 @@ export * from './stepper';
 export * from './uploader';
 export * from './radio-button';
 export * from './tabs';
+export * from './slider';

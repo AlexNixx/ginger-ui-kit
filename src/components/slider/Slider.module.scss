@@ -1,0 +1,16 @@
+.slider {
+  position: relative;
+  touch-action: pan-y;
+  width: 100%;
+
+  .sliderItem {
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    float: left;
+    touch-action: none;
+    cursor: grab;
+    will-change: transform;
+  }
+}
