@@ -57,6 +57,18 @@
     &::placeholder {
       color: var(--grey-400);
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active,
+    &:-webkit-autofill::first-line,
+    &:-webkit-autofill::placeholder {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: var(--grey-900);
+      font-size: var(--fs-body-1);
+    }
   }
 }
 

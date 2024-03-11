@@ -29,7 +29,7 @@ interface TextFieldProps extends HTMLTextFieldProps {
   leftAddon?: ReactNode;
   rightAddon?: ReactNode;
   className?: string;
-  onChange?: (value: string) => void;
+  onChange: (value: string) => void;
 }
 
 export const TextField = memo((props: TextFieldProps) => {
