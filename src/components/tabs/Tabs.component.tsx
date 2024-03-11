@@ -12,13 +12,12 @@ import { classNames } from '../../shared/utils';
 import cls from './Tabs.module.scss';
 
 type Value = number | string;
-type TabListElement = ReactElement<TabListProps>;
 type TabElement = ReactElement<TabProps>;
-type TabPanelElement = ReactElement<TabPanelProps>;
 
 interface TabContainerProps {
   value: Value;
-  children: TabListElement | TabPanelElement | TabPanelElement[];
+  children: ReactNode;
+  className?: string;
 }
 
 interface TabListProps {
@@ -33,34 +32,37 @@ interface TabProps {
   active?: boolean;
   onClick?: () => void;
   children: ReactNode;
-  classNames?: string;
+  className?: string;
 }
 
 interface TabPanelProps {
   value: Value;
   children: ReactNode;
+  className?: string;
 }
 
-export const TabContainer = memo(({ value, children }: TabContainerProps) => {
-  return (
-    <>
-      {Children.map(children, child => {
-        if (isValidElement<TabListProps>(child) && child.type === TabList) {
-          return cloneElement(child, {
-            activeTab: value
-          });
-        }
-        if (isValidElement<TabPanelProps>(child) && child.type === TabPanel) {
-          if (child.props.value === value) {
-            return child;
+export const TabContainer = memo(
+  ({ value, children, className }: TabContainerProps) => {
+    return (
+      <div className={className}>
+        {Children.map(children, child => {
+          if (isValidElement<TabListProps>(child) && child.type === TabList) {
+            return cloneElement(child, {
+              activeTab: value
+            });
+          }
+          if (isValidElement<TabPanelProps>(child) && child.type === TabPanel) {
+            if (child.props.value === value) {
+              return child;
+            }
+            return null;
           }
           return null;
-        }
-        return null;
-      })}
-    </>
-  );
-});
+        })}
+      </div>
+    );
+  }
+);
 
 export const TabList = memo((props: TabListProps) => {
   return (
@@ -82,7 +84,7 @@ export const Tab = memo((props: TabProps) => {
   return (
     <div
       className={classNames(cls.tab, { [cls.active]: props.active }, [
-        props.classNames
+        props.className
       ])}
       onClick={props.onClick}
     >
@@ -91,4 +93,6 @@ export const Tab = memo((props: TabProps) => {
   );
 });
 
-export const TabPanel = ({ children }: TabPanelProps) => children;
+export const TabPanel = ({ children, className }: TabPanelProps) => (
+  <div className={className}>{children}</div>
+);
