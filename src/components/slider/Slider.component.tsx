@@ -47,9 +47,9 @@ const SliderContent = (props: SliderProps) => {
   const calculateMovement =
     ({ xMov = 0, dragging = false } = {}) =>
     (springIndex: number) => {
-      const spacingPercentage = (spacing * 100) / slideWidth;
+      const spacingPercentage = spacing * 100 / slideWidth;
       const offset = 100 - (slideWidth - spacing);
-      const offsetPercentage = (offset / slideWidth) * 100;
+      const offsetPercentage = offset / slideWidth * 100;
       const currentSlideIndex = index.current;
       const slidesCount = slides.length;
 

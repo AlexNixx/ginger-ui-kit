@@ -19,7 +19,7 @@ export const Default: Story = {
   },
   render: args => (
     <TabContainer value={args.value}>
-      <TabList onChange={value => console.log(value)}>
+      <TabList onChange={() => {}}>
         <Tab value={1}>
           <Typography noWrap variant='h4'>
             Label 1

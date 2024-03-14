@@ -4,10 +4,10 @@
   "printWidth": 80,
   "arrowParens": "avoid",
   "bracketSameLine": false,
-  "bracketSpacing": true,
   "semi": true,
   "singleQuote": true,
   "jsxSingleQuote": true,
   "trailingComma": "none",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "bracketSpacing": false
 }

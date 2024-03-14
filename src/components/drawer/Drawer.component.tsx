@@ -68,7 +68,7 @@ const DrawerContent = memo((props: DrawerProps) => {
       if (my < -70) cancel();
 
       if (last) {
-        if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
+        if (my > height * 0.5 || vy > 0.5 && dy > 0) {
           close();
         } else {
           openDrawer();
@@ -89,7 +89,7 @@ const DrawerContent = memo((props: DrawerProps) => {
     return null;
   }
 
-  const display = y.to(py => (py < height ? 'block' : 'none'));
+  const display = y.to(py => py < height ? 'block' : 'none');
 
   return (
     <Portal>

@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { _Image as Image } from './Image.component';
 import { Skeleton } from '../skeleton';
 import { Typography } from '../typography';
-import cls from '../checkbox/Checkbox.module.scss';
 
 const meta: Meta<typeof Image> = {
   component: Image,
