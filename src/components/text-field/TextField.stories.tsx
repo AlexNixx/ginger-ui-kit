@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { TextField } from './TextField.component';
+import HomeIcon from '../icons/HomeIcon';
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
@@ -23,17 +24,12 @@ export const Default: Story = {
       }}
     >
       <TextField
-        placeholder='test placeholder'
+        leftAddon={<HomeIcon />}
+        rightAddon={<HomeIcon />}
         label='Email'
-        hint='Some text'
         {...args}
       />
-      <TextField
-        placeholder='test placeholder'
-        label='Email'
-        hint='Some text'
-        {...args}
-      />
+      <TextField label='Email' value={null} {...args} />
     </div>
   )
 };

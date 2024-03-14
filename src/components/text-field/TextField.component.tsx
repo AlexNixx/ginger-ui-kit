@@ -1,30 +1,31 @@
 import {
   ChangeEvent,
+  forwardRef,
   InputHTMLAttributes,
   memo,
   ReactNode,
+  useCallback,
   useEffect,
+  useImperativeHandle,
   useRef,
   useState
 } from 'react';
 
 import { Typography } from '../typography';
-import { classNames } from 'shared/utils';
 import type { Mods } from 'shared/utils';
+import { classNames } from 'shared/utils';
 
 import cls from './TextField.module.scss';
 
 type HTMLTextFieldProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readOnly' | 'size'
+  'onChange' | 'readOnly' | 'size' | 'placeholder'
 >;
 
 interface TextFieldProps extends HTMLTextFieldProps {
-  label?: string;
-  hint?: string;
+  label: string;
   readonly?: boolean;
   autofocus?: boolean;
-  isError?: boolean;
   errorMessage?: string;
   leftAddon?: ReactNode;
   rightAddon?: ReactNode;
@@ -32,101 +33,88 @@ interface TextFieldProps extends HTMLTextFieldProps {
   onChange: (value: string) => void;
 }
 
-export const TextField = memo((props: TextFieldProps) => {
-  const {
-    label,
-    hint,
-    type = 'text',
-    disabled,
-    readonly,
-    autofocus,
-    isError,
-    errorMessage,
-    leftAddon,
-    rightAddon,
-    className,
-    onChange,
-    ...otherProps
-  } = props;
+export const TextField = memo(
+  forwardRef((props: TextFieldProps, forwardedRef) => {
+    const {
+      value,
+      label,
+      type = 'text',
+      disabled,
+      readonly,
+      autofocus,
+      errorMessage,
+      leftAddon,
+      rightAddon,
+      className,
+      onChange,
+      ...otherProps
+    } = props;
 
-  const ref = useRef<HTMLInputElement>(null);
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+    const ref = useRef<HTMLInputElement>(null);
+    useImperativeHandle(forwardedRef, () => ref.current);
+    const [isFocused, setIsFocused] = useState<boolean>(false);
 
-  const mods: Mods = {
-    [cls.focused]: isFocused,
-    [cls.readonly]: readonly,
-    [cls.disabled]: disabled,
-    [cls.error]: isError
-  };
+    useEffect(() => {
+      if (autofocus) {
+        setIsFocused(true);
+        ref.current?.focus();
+      }
+    }, [autofocus]);
 
-  const additional: string[] = [className];
+    const onBlur = () => {
+      setIsFocused(false);
+    };
 
-  useEffect(() => {
-    if (autofocus) {
+    const onFocus = () => {
       setIsFocused(true);
-      ref.current?.focus();
-    }
-  }, [autofocus]);
+    };
 
-  const onBlur = () => {
-    setIsFocused(false);
-  };
+    const handleOnChange = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
+      },
+      [onChange]
+    );
 
-  const onFocus = () => {
-    setIsFocused(true);
-  };
+    const mods: Mods = {
+      [cls.focused]: isFocused,
+      [cls.readonly]: readonly,
+      [cls.disabled]: disabled,
+      [cls.error]: !!errorMessage
+    };
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
+    const additional: string[] = [className];
 
-  const textField = (
-    <div className={classNames(cls.textFieldWrapper, mods, additional)}>
-      {leftAddon && (
-        <div className={classNames(cls.leftAddon)}>{leftAddon}</div>
-      )}
-      <input
-        ref={ref}
-        type={type}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onChange={handleOnChange}
-        readOnly={readonly}
-        className={cls.textField}
-        {...otherProps}
-      />
-      {rightAddon && (
-        <div className={classNames(cls.rightAddon)}>{rightAddon}</div>
-      )}
-    </div>
-  );
-
-  if (label || hint || errorMessage) {
     return (
-      <div className={cls.textFieldContainer}>
-        {label && (
-          <Typography
-            variant='body2'
-            fontWeight='medium'
-            className={cls.label}
-            noWrap
-          >
-            {label}
-          </Typography>
+      <div className={classNames(cls.textFieldWrapper, mods, additional)}>
+        {leftAddon && (
+          <div className={classNames(cls.leftAddon)}>{leftAddon}</div>
         )}
-        {textField}
-        {(isError || hint) && (
-          <Typography
-            variant='body2'
-            className={classNames(cls.hint, { [cls.error]: isError })}
-            noWrap
-          >
-            {isError && errorMessage ? errorMessage : hint}
-          </Typography>
+        <input
+          value={value}
+          ref={ref}
+          type={type}
+          placeholder={label}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={handleOnChange}
+          readOnly={readonly}
+          className={cls.textField}
+          {...otherProps}
+        />
+        <Typography
+          variant='body1'
+          className={classNames(cls.label, {
+            [cls.labelError]: !!errorMessage
+          })}
+          noWrap
+        >
+          {!!errorMessage ? errorMessage : label}
+        </Typography>
+        {rightAddon && (
+          <div className={classNames(cls.rightAddon)}>{rightAddon}</div>
         )}
       </div>
     );
-  }
-
-  return textField;
-});
+  })
+);

@@ -1,7 +1,8 @@
 .textFieldWrapper {
+  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: end;
 
   border-radius: var(--border-radius-sm);
   border: 1.5px solid var(--grey-300);
@@ -9,7 +10,7 @@
 
   overflow: hidden;
 
-  min-height: 38px;
+  height: 44px;
   transition: all var(--transition);
 
   &.focused {
@@ -25,10 +26,6 @@
   &.error {
     border: 1.5px solid var(--error-200);
     box-shadow: 0px 0px 0px 5px var(--error-100);
-
-    .textField {
-      color: var(--error-500);
-    }
   }
 
   .leftAddon,
@@ -40,8 +37,7 @@
     height: 100%;
 
     padding: 0 15px;
-    min-width: 50px;
-    max-width: 120px;
+    width: 50px;
 
     color: var(--grey-700);
     background: var(--grey-200);
@@ -51,11 +47,11 @@
     color: var(--grey-900);
     background: transparent;
     width: 100%;
-    padding: 0 15px;
+    padding: 5px 15px;
     font-size: var(--fs-body-1);
 
     &::placeholder {
-      color: var(--grey-400);
+      visibility: hidden;
     }
 
     &:-webkit-autofill,
@@ -69,32 +65,35 @@
       -webkit-text-fill-color: var(--grey-900);
       font-size: var(--fs-body-1);
     }
+
+    &:focus ~ .label,
+    &:not(:placeholder-shown) ~ .label {
+      transform: translate(0, 0);
+      font-size: 12px;
+    }
   }
-}
 
-.textFieldContainer {
-  position: relative;
-
-  .label,
-  .hint {
-    position: absolute;
+  .leftAddon ~ .label {
+    top: 0;
+    left: 46px;
+    transform: translate(0, 55%);
   }
 
   .label {
+    position: absolute;
     top: 0;
     left: 0;
-    transform: translate(0, -22.5px);
-    color: var(--grey-700);
+    transform: translate(0, 55%);
+    padding: 0;
+    margin: 0 0 0 15px;
+    color: var(--grey-400);
+    pointer-events: none;
+    transition: all var(--transition) ease;
   }
 
-  .hint {
-    bottom: 0;
-    left: 0;
-    transform: translate(0, 22.5px);
-    color: var(--grey-600);
-
-    &.error {
-      color: var(--error-600);
-    }
+  .labelError {
+    transform: translate(0, 0);
+    font-size: 12px;
+    color: var(--error-600);
   }
 }
