@@ -21,6 +21,7 @@
   position: relative;
   height: 100%;
   cursor: pointer;
+  color: var(--nx-color-main-text);
 
   &.active::after {
     position: absolute;

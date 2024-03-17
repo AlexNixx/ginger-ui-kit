@@ -9,10 +9,10 @@
   align-items: center;
   justify-content: center;
 
-  background: var(--overlay);
-  backdrop-filter: blur(var(--blur));
+  background-color: var(--nx-bg-overlay);
+  backdrop-filter: blur(var(--nx-orerlay-blur));
 
-  z-index: var(--ui-index-4);
+  z-index: var(--ui-index-2);
 
   &.clickable {
     cursor: pointer;

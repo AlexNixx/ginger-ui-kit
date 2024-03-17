@@ -22,7 +22,7 @@ interface TabContainerProps {
 
 interface TabListProps {
   activeTab?: Value;
-  onChange: (tab: Value) => void;
+  onChange?: (tab: Value) => void;
   children: TabElement | TabElement[];
   className?: string;
 }

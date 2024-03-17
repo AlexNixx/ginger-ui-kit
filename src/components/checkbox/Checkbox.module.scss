@@ -7,7 +7,7 @@ $size: 18px;
   gap: 10px;
 
   position: relative;
-  cursor: pointer;
+  pointer-events: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
@@ -80,6 +80,7 @@ $size: 18px;
 
   .checkmark {
     position: relative;
+    pointer-events: all;
     top: 0;
     left: 0;
     height: $size;
@@ -88,6 +89,7 @@ $size: 18px;
     transition: all var(--transition);
     border: 1px solid var(--grey-300);
     background: var(--white);
+    cursor: pointer;
 
     &:after {
       content: '';

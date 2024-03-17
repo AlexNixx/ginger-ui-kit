@@ -36,7 +36,7 @@ interface TextFieldProps extends HTMLTextFieldProps {
 export const TextField = memo(
   forwardRef((props: TextFieldProps, forwardedRef) => {
     const {
-      value,
+      value = '',
       label,
       type = 'text',
       disabled,

@@ -5,8 +5,8 @@
   align-items: end;
 
   border-radius: var(--border-radius-sm);
-  border: 1.5px solid var(--grey-300);
-  background: var(--white);
+  border: 1.5px solid var(--nx-color-border-main);
+  background: var(--nx-bg);
 
   overflow: hidden;
 
@@ -14,18 +14,19 @@
   transition: all var(--transition);
 
   &.focused {
-    box-shadow: 0px 0px 0px 5px var(--brand-100);
+    box-shadow: var(--nx-bs-focused);
   }
 
   &.disabled,
   &.readonly {
-    background: var(--grey-100);
+    background: var(--nx-bg-disabled);
     box-shadow: none;
+    pointer-events: none;
   }
 
   &.error {
-    border: 1.5px solid var(--error-200);
-    box-shadow: 0px 0px 0px 5px var(--error-100);
+    border: 1.5px solid var(--nx-color-border-error);
+    box-shadow: var(--nx-bs-error);
   }
 
   .leftAddon,
@@ -37,14 +38,12 @@
     height: 100%;
 
     padding: 0 15px;
-    width: 50px;
 
-    color: var(--grey-700);
-    background: var(--grey-200);
+    color: var(--nx-color-secondary-text);
   }
 
   .textField {
-    color: var(--grey-900);
+    color: var(--nx-color-main-text);
     background: transparent;
     width: 100%;
     padding: 5px 15px;
@@ -55,27 +54,38 @@
     }
 
     &:-webkit-autofill,
-    &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active,
     &:-webkit-autofill::first-line,
-    &:-webkit-autofill::placeholder {
+    &:-webkit-autofill::placeholder,
+    &:-internal-autofill-selected,
+    &:-internal-autofill-previewed {
       -webkit-background-clip: text;
-      -webkit-text-fill-color: var(--grey-900);
+      -webkit-text-fill-color: var(--nx-color-main-text);
       font-size: var(--fs-body-1);
+      letter-spacing: normal;
     }
 
     &:focus ~ .label,
-    &:not(:placeholder-shown) ~ .label {
+    &:not(:placeholder-shown) ~ .label,
+    &:-internal-autofill-selected ~ .label {
       transform: translate(0, 0);
       font-size: 12px;
     }
   }
 
+  .leftAddon ~ .textField {
+    padding-left: 0;
+  }
+
+  .rightAddon ~ .textField {
+    padding-right: 0;
+  }
+
   .leftAddon ~ .label {
     top: 0;
-    left: 46px;
+    left: 29px;
     transform: translate(0, 55%);
   }
 
@@ -86,7 +96,7 @@
     transform: translate(0, 55%);
     padding: 0;
     margin: 0 0 0 15px;
-    color: var(--grey-400);
+    color: var(--nx-color-label);
     pointer-events: none;
     transition: all var(--transition) ease;
   }
@@ -94,6 +104,6 @@
   .labelError {
     transform: translate(0, 0);
     font-size: 12px;
-    color: var(--error-600);
+    color: var(--nx-color-error);
   }
 }

@@ -2,17 +2,20 @@ import type { ChangeEvent, ReactElement, ReactNode } from 'react';
 
 import { classNames } from 'shared/utils';
 import { Typography } from 'components/typography';
-import { CheckboxValue } from 'model';
 
 import cls from './Checkbox.module.scss';
 
 export type CheckboxElement = ReactElement<CheckboxProps>;
 
 interface CheckboxProps {
-  value: CheckboxValue;
+  value?: number | string;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: (value: CheckboxValue, checked: boolean) => void;
+  onChange?: (
+    value: number | string,
+    // event: ChangeEvent<HTMLInputElement>
+    checked: boolean
+  ) => void;
   children: ReactNode;
   className?: string;
 }
@@ -27,17 +30,13 @@ export const Checkbox = (props: CheckboxProps) => {
     children
   } = props;
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(value, e.target.checked);
-  };
-
   return (
     <label className={classNames(cls.container, {}, [className])}>
       <input
         type='checkbox'
         checked={checked}
         disabled={disabled}
-        onChange={handleOnChange}
+        onChange={event => onChange(value, event.target.checked)}
       />
       <div className={cls.checkmark}></div>
       <Typography variant='body1' className={cls.label}>

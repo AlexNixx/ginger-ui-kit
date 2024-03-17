@@ -2,6 +2,22 @@
   --black: #000;
   --white: #fff;
 
+  --nx-color-main-text: #101828;
+  --nx-color-secondary-text: #344054;
+  --nx-color-label: #98a2b3;
+  --nx-color-error: #d92d20;
+
+  --nx-bg: #fff;
+  --nx-bg-disabled: #f2f4f7;
+
+  --nx-bs-focused: 0px 0px 0px 5px #f2f4f7;
+  --nx-bs-error: 0px 0px 0px 5px #fee4e2;
+
+  --nx-color-border-main: #d0d5dd;
+  --nx-color-border-error: #fecdca;
+
+  --nx-bg-overlay: rgba(0, 0, 0, 0.5);
+
   --grey-100: #f2f4f7;
   --grey-200: #eaecf0;
   --grey-300: #d0d5dd;
@@ -54,5 +70,4 @@
 
   --skeleton-bg: #d8d8d9;
   --skeleton-foreground: #e2e2e2;
-  --overlay: rgba(0, 0, 0, 0.5);
 }
