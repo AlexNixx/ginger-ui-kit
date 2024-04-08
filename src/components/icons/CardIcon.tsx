@@ -9,7 +9,7 @@ const SvgCardIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      stroke='#000'
+      stroke='currentColor'
       strokeLinecap='round'
       strokeLinejoin='round'
       strokeWidth={2}

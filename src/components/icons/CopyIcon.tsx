@@ -9,7 +9,7 @@ const SvgCopyIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill='#0D0D0D'
+      fill='currentColor'
       d='M0 2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-4H2a2 2 0 0 1-2-2zm8 12v4h10V8h-4v4a2 2 0 0 1-2 2zm4-2V2H2v10z'
     />
   </svg>

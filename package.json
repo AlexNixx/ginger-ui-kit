@@ -30,7 +30,7 @@
     "lint:ts": "prettier --check . && eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "prettier --write . && eslint \"**/*.{ts,tsx}\" --fix",
     "test:unit": "jest",
-    "icons": "npm run icons:gen && npm run icons:optim",
+    "icons": "npm run icons:optim && npm run icons:gen",
     "icons:gen": "rimraf src/components/icons && svgr -d src/components/icons src/assets/svg",
     "icons:optim": "svgo -f src/assets/svg -o src/assets/svg",
     "sb:start": "storybook dev -p 6006",
