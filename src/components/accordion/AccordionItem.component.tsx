@@ -31,12 +31,12 @@ export const AccordionItem = (props: AccordionItemProps) => {
       aria-controls={ariaControls}
       aria-label={(isOpen ? 'hide ' : 'show ') + ariaControls}
     >
-      <div onClick={onClick} className={cls.header}>
+      <button onClick={onClick} className={cls.buttonHeader}>
         <Typography variant='h6' fontWeight='medium'>
           {title}
         </Typography>
         <ArrowDownIcon className={cls.arrowIcon} />
-      </div>
+      </button>
       <section className={cls.content} id={ariaControls}>
         {children}
       </section>

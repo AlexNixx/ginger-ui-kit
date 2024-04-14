@@ -2,4 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 12px 0;
+
+  background: var(--nx-bg);
+  border-radius: var(--border-radius-sm);
 }

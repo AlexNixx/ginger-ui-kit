@@ -1,18 +1,14 @@
 .accordionItem {
   display: flex;
   flex-direction: column;
+  transition: 0.4s;
 
-  .header {
+  .buttonHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-
-    .headerTitle {
-      font-size: var(--fs-lg);
-      font-weight: var(--fw-medium);
-      line-height: var(--lh-body-1);
-    }
+    background: transparent;
+    padding: 2px 5px;
 
     .arrowIcon {
       width: 24px;
@@ -22,13 +18,16 @@
   }
 
   .content {
-    max-height: 0;
     overflow: hidden;
+    padding: 0 5px;
+    min-height: 0;
+    height: 0;
+    transition: all 0.4s;
   }
 
   &.open {
     .content {
-      max-height: 1000px;
+      height: auto;
       margin-top: 12px;
     }
 
